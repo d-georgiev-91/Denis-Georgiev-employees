@@ -9,4 +9,6 @@ html
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   body
+    nav
+      = link_to t('nav_links.upload'), new_work_history_path
     = yield

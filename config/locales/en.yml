@@ -28,4 +28,14 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  nav_links:
+    upload: Click here to upload new CSV
+  labels:
+    file_upload: 'Upload CSV File:'
+  buttons:
+    upload: Upload
+  employees_table:
+    headers:
+      employee_id: 'Employee ID #%{employee_number}'
+      project_id: 'Project ID'
+      days_worked: 'Days worked'

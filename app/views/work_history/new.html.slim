@@ -1,0 +1,8 @@
+= form_with url: work_history_path, method: :post, local: true, multipart: true do |form|
+  .field
+    = form.label :csv_file, t('labels.file_upload')
+    = form.file_field :csv_file, accept: '.csv'
+  = form.submit t('buttons.upload')
+
+- if flash[:alert]
+  p.error = flash[:alert]

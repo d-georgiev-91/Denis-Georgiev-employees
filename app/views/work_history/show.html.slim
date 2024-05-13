@@ -1,0 +1,15 @@
+.table-container
+  table
+    thead
+      tr
+        th = t 'employees_table.headers.employee_id', :employee_number => 1
+        th = t 'employees_table.headers.employee_id', :employee_number => 2
+        th Project ID
+        th Days Worked
+    tbody
+      - @results.each do |project_pairs|
+        tr
+          td = project_pairs[:emp_id_1]
+          td = project_pairs[:emp_id_2]
+          td = project_pairs[:project_id]
+          td = project_pairs[:days_worked]

@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+.error {
+    color: #d35039;
+}
+
+.table-container {
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    display: inline-block;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
