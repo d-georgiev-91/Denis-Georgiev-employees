@@ -1,3 +1,4 @@
+require 'chronic'
 require 'csv'
 
 class WorkHistoryService
@@ -8,7 +9,12 @@ class WorkHistoryService
       emp_id = row['EmpID']
       project_id = row['ProjectID']
       date_from = Date.parse row['DateFrom']
-      date_to = row['DateTo'].present? && row['DateTo'].downcase != 'null' ? Date.parse(row['DateTo']) : Date.today
+      date_to =
+        if row['DateTo'].present? && row['DateTo'].downcase != 'null'
+           Chronic.parse(row['DateTo']).to_date
+        else
+          Date.today
+        end
 
       data << { emp_id: emp_id, project_id: project_id, date_from: date_from, date_to: date_to }
     end
@@ -55,12 +61,12 @@ class WorkHistoryService
         project_pairs << {
           emp_id_1: pair[:emp_id_1],
           emp_id_2: pair[:emp_id_2],
-          project_id: project_id,
+          project_id: project_id.to_i,
           days_worked: pair[:days_worked]
         }
       end
     end
 
-    project_pairs.sort_by {|pair| pair[:project_id].to_i }
+    project_pairs.sort_by {|pair| pair[:project_id] }
   end
 end
